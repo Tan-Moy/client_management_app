@@ -6,7 +6,8 @@ module.exports = {
     entry: "./src/root.js",
     output: {
         path: __dirname + "/dist",
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: "/"
     },
 
     module: {
@@ -32,6 +33,7 @@ module.exports = {
 
     devServer: {
         contentBase: __dirname + "/dist",
+        historyApiFallback: true,
         compress: true,
         stats: "errors-only",
         open: true
