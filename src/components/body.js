@@ -8,8 +8,8 @@ import Tables from "./tables";
 
 const Body = () => (
     <div>
-        <Route exact path="/" component={Tables} />
         <Route exact path="/" component={Tiles} />
+        <Route exact path="/" component={Tables} />
         <Route path="/tables/bello/" component={Tables} />
     </div>
 );

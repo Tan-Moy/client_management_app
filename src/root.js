@@ -9,7 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 import Dashboard from "./components/dashboard";
 
 const store = createStore(rootReducer);
-console.log(store);
+//console.log(store);
 
 ReactDOM.render(
     <Provider store={store}>
