@@ -25,4 +25,23 @@ export function createData(newData) {
     payload: json
   };
 }
+
+export function editData(editedData) {
+  let json = immutabeJson;
+  console.log("editData: ", editedData);
+  let index = json.findIndex(item => item.SSN == editedData.SSN);
+  console.log(index);
+  json[index].firstName = editedData.firstName;
+  json[index].lastName = editedData.lastName;
+  json[index].email = editedData.email;
+  json[index].phoneNumber = editedData.phoneNumber;
+  json[index].cityName = editedData.cityName;
+  json[index].status = editedData.status;
+
+  console.log(json);
+  return {
+    type: EDIT_DATA,
+    payload: json
+  };
+}
 // export function arrangedData() {}

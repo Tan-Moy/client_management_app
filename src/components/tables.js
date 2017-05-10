@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { fetchData } from "../actions/action_creator";
 import { connect } from "react-redux";
 import Tiles from "./tiles";
+import { Link } from "react-router-dom";
 
 class Tables extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class Tables extends Component {
   }
 
   showData(item) {
-    let id = Math.ceil(10000000 * Math.random());
+    let id = item.SSN;
     let name = `${item.firstName} ${item.lastName}`;
     let bName = `${item.lastName} & CO.`;
     let email = item.email;
@@ -31,7 +32,11 @@ class Tables extends Component {
         <td>{phone}</td>
         <td>{city}</td>
         <td>
-          <span>edit </span>
+          <span>
+            <Link to={`user/edit/${id}`}>
+              edit
+            </Link>
+          </span>
           <span>view </span>
           <span>delete </span>
         </td>

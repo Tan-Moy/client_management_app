@@ -15,6 +15,10 @@ export default function(state = [], action) {
       console.log(action.payload);
       return [action.payload, ...state];
 
+    case EDIT_DATA:
+      console.log(action.payload);
+      return [action.payload, ...state];
+
     default:
       return state;
   }

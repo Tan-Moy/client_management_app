@@ -1,27 +1,48 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Form, Text, Select } from "react-form";
-import { createData } from "../actions/action_creator";
+import { fetchData } from "../actions/action_creator";
+import { editData } from "../actions/action_creator";
 import { connect } from "react-redux";
+import { FormDefaultProps } from "react-form";
 
-class Add extends Component {
+class Edit extends Component {
   constructor() {
     super();
 
     this.state = null;
   }
+
+  componentWillMount() {
+    this.props.fetchData();
+  }
+
+  filterItems(query) {
+    return this.props.customers.filter(
+      item => item.SSN.toLowerCase().indexOf(query.toLowerCase()) > -1
+    );
+  }
+
   render() {
-    if (this.state) {
-      console.log("bello");
-      return <Redirect to="/" />;
+    if (!this.props.customers) {
+      return <div>Loading...</div>;
     }
+    const personID = this.filterItems(this.props.match.params.id)[0];
+    //console.log("personID: ", personID);
     return (
       <Form
+        defaultValues={{
+          firstName: personID.firstName,
+          lastName: personID.lastName,
+          email: personID.email,
+          phoneNumber: personID.phoneNumber,
+          cityName: personID.cityName,
+          status: personID.status,
+          SSN: personID.SSN
+        }}
         onSubmit={values => {
-          values.SSN = `${Math.ceil(1000 * Math.random())}-${Math.ceil(1000 * Math.random())}-${Math.ceil(100 * Math.random())}`;
-          this.props.createData(values);
-          this.setState({}); //comment to stop auto redirection
           console.log("Success!", values);
+          editData(values);
         }}
         validate={values => {
           const {
@@ -78,4 +99,9 @@ class Add extends Component {
   }
 }
 
-export default connect(null, { createData })(Add);
+function mapStateToProps(state) {
+  console.log("Recent: ", { customers: state.data[0] });
+  return { customers: state.data[0] };
+}
+
+export default connect(mapStateToProps, { fetchData, editData })(Edit);
