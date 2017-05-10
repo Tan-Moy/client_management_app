@@ -23,7 +23,7 @@ class Tables extends Component {
     let city = item.cityName;
     //console.log(bName);
     return (
-      <tr key={id}>
+      <tr key={item.firstName}>
         <td>{id}</td>
         <td>{name}</td>
         <td>{bName}</td>
