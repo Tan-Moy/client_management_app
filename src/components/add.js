@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Route, Redirect } from "react-router-dom";
 import {
   Form,
   Text,
@@ -14,12 +15,22 @@ import { createData } from "../actions/action_creator";
 import { connect } from "react-redux";
 
 class Add extends Component {
+  constructor() {
+    super();
+
+    this.state = null;
+  }
   render() {
+    if (this.state) {
+      console.log("bello");
+      return <Redirect to="/" />;
+    }
     return (
       <Form
         onSubmit={values => {
-          console.log("Success!", values);
           this.props.createData(values);
+          this.setState({});
+          console.log("Success!", this.state);
         }}
         validate={values => {
           const {
