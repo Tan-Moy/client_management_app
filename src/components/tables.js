@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { fetchData } from "../actions/action_creator";
 import { connect } from "react-redux";
+import Tiles from "./tiles";
 
 class Tables extends Component {
   constructor(props) {
@@ -55,6 +56,9 @@ class Tables extends Component {
 
     return (
       <div>
+        <div>
+          <Tiles hello={this.props.customers} />
+        </div>
         <table>
           <thead>
             <tr>
