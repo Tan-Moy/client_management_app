@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchData } from "../actions/action_creator";
+import { fetchData, deleteData } from "../actions/action_creator";
 import { connect } from "react-redux";
 import Tiles from "./tiles";
 import { Link } from "react-router-dom";
@@ -37,8 +37,11 @@ class Tables extends Component {
               edit
             </Link>
           </span>
-          <span>view </span>
-          <span>delete </span>
+          <span>
+            <Link to={`user/view/${id}`}>
+              view/delete
+            </Link>
+          </span>
         </td>
       </tr>
     );
@@ -90,4 +93,4 @@ function mapStateToProps(state) {
   return { customers: state.data[0] };
 }
 
-export default connect(mapStateToProps, { fetchData })(Tables);
+export default connect(mapStateToProps, { fetchData, deleteData })(Tables);

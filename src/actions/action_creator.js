@@ -44,4 +44,10 @@ export function editData(editedData) {
     payload: json
   };
 }
+
+export function deleteData(data) {
+  let json = immutabeJson;
+  let index = json.findIndex(item => item.SSN == data.SSN);
+  json.splice(index, 1);
+}
 // export function arrangedData() {}

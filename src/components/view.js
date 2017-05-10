@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { Form, Text, Select } from "react-form";
 import { fetchData } from "../actions/action_creator";
-import { editData } from "../actions/action_creator";
+import { deleteData } from "../actions/action_creator";
 import { connect } from "react-redux";
 import { FormDefaultProps } from "react-form";
 
-class Edit extends Component {
+class View extends Component {
   constructor() {
     super();
 
@@ -46,7 +46,7 @@ class Edit extends Component {
           onSubmit={values => {
             console.log("Success!", values);
             this.setState({}); //comment to stop auto redirection
-            editData(values);
+            deleteData(values);
           }}
           validate={values => {
             const {
@@ -79,24 +79,9 @@ class Edit extends Component {
                   <Text field="phoneNumber" placeholder="Phone" />
                   <Text field="cityName" placeholder="City" />
                   <Text field="status" placeholder="Status" />
-                  <button type="submit">Submit</button>
+                  <button type="submit">Delete</button>
                 </div>
-                <div>
-                  <button
-                    onClick={() =>
-                      setAllValues({
-                        firstName: "",
-                        lastName: "",
-                        email: "",
-                        phoneNumber: "",
-                        cityName: "",
-                        status: "",
-                        SSN: ""
-                      })}
-                  >
-                    Clear
-                  </button>
-                </div>
+
               </form>
             );
           }}
@@ -110,4 +95,4 @@ function mapStateToProps(state) {
   return { customers: state.data[0] };
 }
 
-export default connect(mapStateToProps, { fetchData, editData })(Edit);
+export default connect(mapStateToProps, { fetchData, deleteData })(View);
