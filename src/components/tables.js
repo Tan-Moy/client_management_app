@@ -40,7 +40,7 @@ class Tables extends Component {
         <td>
           <span>
             <Link to={`user/edit/${id}`}>
-              edit
+              edit{" "}
             </Link>
           </span>
           <span>
