@@ -18,7 +18,7 @@ export default class Tiles extends Component {
 
     return (
       <div id="tiles">
-        <div>{total}</div>
+        <div>total: {total}</div>
         <div>active: {active.length}</div>
         <div>passive: {passive.length}</div>
         <div>pipeline: {pipeline.length}</div>

@@ -1,10 +1,8 @@
 body {
-    background-color: white;
+    background-color: #FFEEAD;
     margin: 0;
     padding: 0;
-    h1 {
-        color: red;
-    }
+    font-family: 'Quicksand', sans-serif;
 }
 
 #tiles {
@@ -21,26 +19,53 @@ body {
     -ms-flex-align: center;
     align-items: center;
     div {
-        width: 15vw;
-        height: 4vh;
-        border: 1px solid white;
+        background-color: #88D8B0;
+        color: black;
+        border: 2px solid #FFEEAD;
         border-radius: 20px;
+        padding: 10px 22px;
         text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
         box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
     }
 }
 
 .header {
-    background-color: tomato;
+    background-color: #FFCC5C;
     height: 15vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: distribute;
     -webkit-box-pack: end;
-    justify-content: flex-end;
+    justify-content: space-around;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    button {
+        background-color: #FF6F69;
+        color: black;
+        border: 2px solid #FFEEAD;
+        border-radius: 20px;
+        padding: 10px 22px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    #hidden {
+        margin-right: auto;
+        visibility: hidden;
+    }
+    span {
+        color: black;
+        width: auto;
+        font-weight: bold;
+        font-size: 25px;
+    }
 }
