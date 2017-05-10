@@ -29,8 +29,17 @@ class Add extends Component {
       <Form
         onSubmit={values => {
           this.props.createData(values);
-          this.setState({});
+          //this.setState({});
           console.log("Success!", this.state);
+        }}
+        postSubmit={values => {
+          values.firstName = "";
+          values.lastName = "";
+          values.email = "";
+          values.phoneNumber = "";
+          values.cityName = "";
+          values.status = "";
+          return values;
         }}
         validate={values => {
           const {
@@ -54,16 +63,19 @@ class Add extends Component {
         {({ submitForm }) => {
           return (
             <form onSubmit={submitForm}>
-              <Text field="firstName" placeholder="First Name" />
-              <Text field="lastName" placeholder="Last Name" />
-              <Text field="email" placeholder="Email" />
-              <Text field="phoneNumber" placeholder="Phone" />
-              <Text field="cityName" placeholder="City" />
-              <Text field="status" placeholder="Status" />
-              <button type="submit">Submit</button>
+              <div>
+                <Text field="firstName" placeholder="First Name" />
+                <Text field="lastName" placeholder="Last Name" />
+                <Text field="email" placeholder="Email" />
+                <Text field="phoneNumber" placeholder="Phone" />
+                <Text field="cityName" placeholder="City" />
+                <Text field="status" placeholder="Status" />
+                <button type="submit">Submit</button>
+              </div>
             </form>
           );
         }}
+
       </Form>
     );
   }
