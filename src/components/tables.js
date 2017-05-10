@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchData, deleteData } from "../actions/action_creator";
+import { fetchData, deleteData, sortData } from "../actions/action_creator";
 import { connect } from "react-redux";
 import Tiles from "./tiles";
 import { Link } from "react-router-dom";
@@ -9,10 +9,16 @@ class Tables extends Component {
     super(props);
 
     this.showData = this.showData.bind(this);
+    this.handleCLick = this.handleCLick.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchData();
+  }
+
+  handleCLick(e) {
+    this.props.sortData();
+    console.log("clicked");
   }
 
   showData(item) {
@@ -69,7 +75,7 @@ class Tables extends Component {
         </div>
         <table>
           <thead>
-            <tr>
+            <tr onClick={this.handleCLick}>
               <td>ID</td>
               <td>Name</td>
               <td>Business</td>
@@ -93,4 +99,6 @@ function mapStateToProps(state) {
   return { customers: state.data[0] };
 }
 
-export default connect(mapStateToProps, { fetchData, deleteData })(Tables);
+export default connect(mapStateToProps, { fetchData, deleteData, sortData })(
+  Tables
+);

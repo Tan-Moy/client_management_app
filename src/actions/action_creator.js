@@ -5,7 +5,7 @@ export const CREATE_DATA = "CREATE_DATA";
 export const FETCH_DATA = "FETCH_DATA";
 export const DELETE_DATA = "DELETE_DATA";
 export const EDIT_DATA = "EDIT_DATA";
-export const ARRANGE_DATA = "ARRANGE_DATA";
+export const SORT_DATA = "SORT_DATA";
 
 export function fetchData() {
   //console.log(json);
@@ -50,4 +50,13 @@ export function deleteData(data) {
   let index = json.findIndex(item => item.SSN == data.SSN);
   json.splice(index, 1);
 }
-// export function arrangedData() {}
+
+export function sortData() {
+  //console.log(json);
+  let json = immutabeJson;
+  let sorted = json.sort();
+  return {
+    type: SORT_DATA,
+    payload: sorted
+  };
+}

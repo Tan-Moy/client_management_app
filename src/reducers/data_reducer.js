@@ -2,7 +2,8 @@ import {
   CREATE_DATA,
   FETCH_DATA,
   DELETE_DATA,
-  EDIT_DATA
+  EDIT_DATA,
+  SORT_DATA
 } from "../actions/action_creator";
 
 export default function(state = [], action) {
@@ -16,6 +17,10 @@ export default function(state = [], action) {
       return [action.payload, ...state];
 
     case EDIT_DATA:
+      console.log(action.payload);
+      return [action.payload, ...state];
+
+    case SORT_DATA:
       console.log(action.payload);
       return [action.payload, ...state];
 
