@@ -15,7 +15,7 @@ class Tables extends Component {
   }
 
   showData(item) {
-    let id = item.SSN;
+    let id = Math.ceil(10000000 * Math.random());
     let name = `${item.firstName} ${item.lastName}`;
     let bName = `${item.lastName} & CO.`;
     let email = item.email;
@@ -23,7 +23,7 @@ class Tables extends Component {
     let city = item.cityName;
     //console.log(bName);
     return (
-      <tr key={item.firstName}>
+      <tr key={id}>
         <td>{id}</td>
         <td>{name}</td>
         <td>{bName}</td>

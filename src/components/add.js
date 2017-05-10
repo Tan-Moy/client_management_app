@@ -28,18 +28,10 @@ class Add extends Component {
     return (
       <Form
         onSubmit={values => {
+          values.id = Math.ceil(10000000 * Math.random());
           this.props.createData(values);
-          //this.setState({});
-          console.log("Success!", this.state);
-        }}
-        postSubmit={values => {
-          values.firstName = "";
-          values.lastName = "";
-          values.email = "";
-          values.phoneNumber = "";
-          values.cityName = "";
-          values.status = "";
-          return values;
+          //this.setState({}); //comment to stop auto redirection
+          console.log("Success!", values);
         }}
         validate={values => {
           const {
@@ -60,7 +52,7 @@ class Add extends Component {
           };
         }}
       >
-        {({ submitForm }) => {
+        {({ submitForm, setAllValues }) => {
           return (
             <form onSubmit={submitForm}>
               <div>
@@ -72,10 +64,25 @@ class Add extends Component {
                 <Text field="status" placeholder="Status" />
                 <button type="submit">Submit</button>
               </div>
+              <div>
+                <button
+                  onClick={() =>
+                    setAllValues({
+                      firstName: "",
+                      lastName: "",
+                      email: "",
+                      phoneNumber: "",
+                      cityName: "",
+                      status: "",
+                      id: ""
+                    })}
+                >
+                  Clear
+                </button>
+              </div>
             </form>
           );
         }}
-
       </Form>
     );
   }
