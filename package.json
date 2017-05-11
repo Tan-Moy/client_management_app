@@ -1,7 +1,7 @@
 {
   "name": "webpack_tut",
   "version": "1.0.0",
-  "description": "",
+  "description": "Client Management App",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -23,7 +23,8 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
     "webpack": "^2.4.1",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "write-file-webpack-plugin": "^4.0.2"
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.24.1",
