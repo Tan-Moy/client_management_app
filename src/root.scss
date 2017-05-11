@@ -157,3 +157,7 @@ tr:nth-child(even) {
 .viewPage {
     @include formStyle()
 }
+
+.addPage {
+    @include formStyle()
+}
