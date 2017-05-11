@@ -10,7 +10,7 @@ export default class Body extends Component {
   render() {
     return (
       <div>
-        <Route path="/" component={Tables} />
+        <Route exact path="/" component={Tables} />
         <Route path="/user/add" component={Add} />
         <Route path="/user/edit/:id" component={Edit} />
         <Route path="/user/view/:id" component={View} />
