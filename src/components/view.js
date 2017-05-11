@@ -5,6 +5,7 @@ import { fetchData } from "../actions/action_creator";
 import { deleteData } from "../actions/action_creator";
 import { connect } from "react-redux";
 import { FormDefaultProps } from "react-form";
+import { Link } from "react-router-dom";
 
 class View extends Component {
   constructor() {
@@ -34,6 +35,7 @@ class View extends Component {
       //console.log("personID: ", personID);
       return (
         <div className="viewPage">
+
           <Form
             defaultValues={{
               firstName: personID.firstName,
@@ -88,6 +90,11 @@ class View extends Component {
                     <Text field="status" placeholder="Status" />
                     <div className="inlinebuttons">
                       <button id="clear" type="submit">Delete</button>
+                      {console.log("params:", this.props.match.params.id)}
+                      <Link to={`/user/edit/${this.props.match.params.id}`}>
+                        <button id="submit" type="submit">Edit</button>
+                      </Link>
+
                     </div>
                   </div>
 
