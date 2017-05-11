@@ -99,3 +99,53 @@ table {
 tr:nth-child(even) {
     background-color: #FFCC5C;
 }
+
+.editPage {
+    #submit {
+        @include buttonStyle( #88D8B0, black);
+    }
+    #clear {
+        @include buttonStyle( #FF6F69, black);
+    }
+    span {
+        font-weight: bold;
+        font-size: 20px;
+        color: #FF6F69;
+    }
+    .FormError {
+        font-weight: bold;
+    }
+    .ReactForm {
+        margin-top: 50px;
+        margin: 0 auto;
+        .FormInput {
+            margin-bottom: 10px;
+        }
+        form {
+            width: 60%;
+            margin: 0 auto;
+            margin-top: 25px;
+            input {
+                width: 100%;
+                background-color: #FFEEAD;
+                border: 2px solid #88D8B0;
+                border-radius: 5px;
+                padding: 10px 22px;
+                text-align: left;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+            .inlinebuttons {
+                margin-top: 10px;
+                text-align: center;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+            }
+        }
+    }
+}

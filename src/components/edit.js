@@ -33,74 +33,83 @@ class Edit extends Component {
       const personID = this.filterItems(this.props.match.params.id)[0];
       //console.log("personID: ", personID);
       return (
-        <Form
-          defaultValues={{
-            firstName: personID.firstName,
-            lastName: personID.lastName,
-            email: personID.email,
-            phoneNumber: personID.phoneNumber,
-            cityName: personID.cityName,
-            status: personID.status,
-            SSN: personID.SSN
-          }}
-          onSubmit={values => {
-            console.log("Success!", values);
-            this.setState({}); //comment to stop auto redirection
-            editData(values);
-          }}
-          validate={values => {
-            const {
-              firstName,
-              lastName,
-              email,
-              phoneNumber,
-              cityName,
-              status
-            } = values;
-            return {
-              firstName: !firstName ? "firstName is required" : undefined,
-              lastName: !lastName ? "lastName is required" : undefined,
-              email: !email ? "emailId is required" : undefined,
-              phoneNumber: !phoneNumber
-                ? "Phone number is required"
-                : undefined,
-              cityName: !cityName ? "City Name is required" : undefined,
-              status: !status ? "status is required" : undefined
-            };
-          }}
-        >
-          {({ submitForm, setAllValues }) => {
-            return (
-              <form onSubmit={submitForm}>
-                <div>
-                  <Text field="firstName" placeholder="First Name" />
-                  <Text field="lastName" placeholder="Last Name" />
-                  <Text field="email" placeholder="Email" />
-                  <Text field="phoneNumber" placeholder="Phone" />
-                  <Text field="cityName" placeholder="City" />
-                  <Text field="status" placeholder="Status" />
-                  <button type="submit">Submit</button>
-                </div>
-                <div>
-                  <button
-                    onClick={() =>
-                      setAllValues({
-                        firstName: "",
-                        lastName: "",
-                        email: "",
-                        phoneNumber: "",
-                        cityName: "",
-                        status: "",
-                        SSN: ""
-                      })}
-                  >
-                    Clear
-                  </button>
-                </div>
-              </form>
-            );
-          }}
-        </Form>
+        <div className="editPage">
+          <Form
+            defaultValues={{
+              firstName: personID.firstName,
+              lastName: personID.lastName,
+              email: personID.email,
+              phoneNumber: personID.phoneNumber,
+              cityName: personID.cityName,
+              status: personID.status,
+              SSN: personID.SSN
+            }}
+            onSubmit={values => {
+              console.log("Success!", values);
+              this.setState({}); //comment to stop auto redirection
+              editData(values);
+            }}
+            validate={values => {
+              const {
+                firstName,
+                lastName,
+                email,
+                phoneNumber,
+                cityName,
+                status
+              } = values;
+              return {
+                firstName: !firstName ? "firstName is required" : undefined,
+                lastName: !lastName ? "lastName is required" : undefined,
+                email: !email ? "emailId is required" : undefined,
+                phoneNumber: !phoneNumber
+                  ? "Phone number is required"
+                  : undefined,
+                cityName: !cityName ? "City Name is required" : undefined,
+                status: !status ? "status is required" : undefined
+              };
+            }}
+          >
+            {({ submitForm, setAllValues }) => {
+              return (
+                <form onSubmit={submitForm}>
+                  <div>
+                    <span>First Name</span>
+                    <Text field="firstName" placeholder="First Name" />
+                    <span>Last Name</span>
+                    <Text field="lastName" placeholder="Last Name" />
+                    <span>Email</span>
+                    <Text field="email" placeholder="Email" />
+                    <span>Phone</span>
+                    <Text field="phoneNumber" placeholder="Phone" />
+                    <span>City</span>
+                    <Text field="cityName" placeholder="City" />
+                    <span>Status</span>
+                    <Text field="status" placeholder="Status" />
+                    <div className="inlinebuttons">
+                      <button id="submit" type="submit">Submit</button>
+                      <button
+                        id="clear"
+                        onClick={() =>
+                          setAllValues({
+                            firstName: "",
+                            lastName: "",
+                            email: "",
+                            phoneNumber: "",
+                            cityName: "",
+                            status: "",
+                            SSN: ""
+                          })}
+                      >
+                        Clear
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              );
+            }}
+          </Form>
+        </div>
       );
     }
   }
