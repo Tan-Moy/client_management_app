@@ -3,11 +3,25 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+}
+
+@mixin buttonStyle($bgcolor, $color) {
+    background-color: $bgcolor;
+    color: $color;
+    border: 2px solid #FFEEAD;
+    border-radius: 20px;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 #tiles {
     margin-top: 2vh;
-    margin-bottom: 2vh;
+    margin-bottom: 4vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -19,16 +33,7 @@ body {
     -ms-flex-align: center;
     align-items: center;
     div {
-        background-color: #88D8B0;
-        color: black;
-        border: 2px solid #FFEEAD;
-        border-radius: 20px;
-        padding: 10px 22px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        cursor: pointer;
+        @include buttonStyle(#88D8B0, black);
         box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
     }
 }
@@ -47,16 +52,7 @@ body {
     align-items: center;
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
     button {
-        background-color: #FF6F69;
-        color: black;
-        border: 2px solid #FFEEAD;
-        border-radius: 20px;
-        padding: 10px 22px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        cursor: pointer;
+        @include buttonStyle( #FF6F69, black);
     }
     #hidden {
         margin-right: auto;
@@ -77,29 +73,13 @@ table {
     border-collapse: collapse;
     font-size: 18px;
     line-height: 1.2em;
-    span:nth-child(even) {
-        background-color: #FF6F69;
-        color: black;
-        border: 2px solid #FFEEAD;
-        border-radius: 20px;
+    #delete {
+        @include buttonStyle( #FF6F69, black);
         padding: 5px 11px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        cursor: pointer;
     }
-    span:nth-child(odd) {
-        background-color: #88D8B0;
-        color: black;
-        border: 2px solid #FFEEAD;
-        border-radius: 20px;
+    #edit {
+        @include buttonStyle( #88D8B0, black);
         padding: 5px 11px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        cursor: pointer;
     }
     thead {
         text-align: left;

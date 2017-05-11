@@ -38,16 +38,16 @@ class Tables extends Component {
         <td>{phone}</td>
         <td>{city}</td>
         <td>
-          <span>
-            <Link to={`user/edit/${id}`}>
+          <Link to={`user/edit/${id}`}>
+            <span id="edit">
               edit{" "}
-            </Link>
-          </span>
-          <span>
-            <Link to={`user/view/${id}`}>
+            </span>
+          </Link>
+          <Link to={`user/view/${id}`}>
+            <span id="delete">
               view/delete
-            </Link>
-          </span>
+            </span>
+          </Link>
         </td>
       </tr>
     );
